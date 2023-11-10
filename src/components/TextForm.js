@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './TextForm.css';
 
 export default function TextForm(props) {
+    
     const [text, setText] = useState('Enter your text...')
 
     const handleUpperCase = () => {
