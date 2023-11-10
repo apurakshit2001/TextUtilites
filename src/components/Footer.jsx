@@ -55,30 +55,7 @@ const Footer = () => {
                                         dolor sit amet, consectetur adipisicing elit.
                                     </p>
                                 </div>
-                                {/* Grid column */}
-
-                                {/* Grid column */}
-                                <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                                    {/* Links */}
-                                    <h6 className="text-uppercase fw-bold mb-4">
-                                        Products
-                                    </h6>
-                                    <p>
-                                        <a href="#!" className="text-reset">Angular</a>
-                                    </p>
-                                    <p>
-                                        <a href="#!" className="text-reset">React</a>
-                                    </p>
-                                    <p>
-                                        <a href="#!" className="text-reset">Vue</a>
-                                    </p>
-                                    <p>
-                                        <a href="#!" className="text-reset">Laravel</a>
-                                    </p>
-                                </div>
-                                {/* Grid column */}
-
-                                {/* Grid column */}
+   
                                 <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                                     {/* Links */}
                                     <h6 className="text-uppercase fw-bold mb-4">
