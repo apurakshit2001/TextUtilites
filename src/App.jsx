@@ -1,41 +1,50 @@
-import './App.css';
-import { Header } from './components/Header';
-// import { Body } from './components/Body';
-import Footer from './components/Footer';
-import TextForm from './components/TextForm';
-import Alert from './components/Alert';
-import About from './components/About';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import React, { useState } from 'react';
+import NavBar from './Component/NavBar';
+import TextForm from './Component/TextForm';
+import About from './Component/About';
+import Alert from './Component/Alert';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Footer from './Component/Footer';
 
+const App = () => {
+  const [alert, setAlert] = useState(null);
 
-function App() {
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    });
+    setTimeout(() => {
+      setAlert(null);
+    }, 1500);
+  };
+
+  const [mode, setMode] = useState('light'); // Whether dark mode is on or not
+  const toggleMode = () => {
+    if (mode === 'light') {
+      setMode('dark');
+      document.body.style.backgroundColor = '#042743';
+      document.body.style.color = 'white';
+      showAlert('Dark mode has been enabled', 'success');
+    } else {
+      setMode('light');
+      document.body.style.backgroundColor = 'white';
+      document.body.style.color = 'black';
+      showAlert('Light mode has been enabled', 'success');
+    }
+  };
 
   return (
-    <>
-      <Router>
-        <Header Title="TextUtilites" />
-        <Alert alert="Follow me on instagram" />
-        <div className="container">
-
-          <Routes >
-            
-            <Route path='/' element={<TextForm heading="Enter the text to analyze" />} />
-
-            <Route path="/about" element={<About />} />
-
-          </Routes>
-
-        </div>
-        <Footer />
-      </Router>
-
-    </>
+    <Router>
+      <NavBar title="Hola" mode={mode} toggleMode={toggleMode} />
+      <Alert alert={alert} />
+        <Routes>
+          <Route path="/" element={<TextForm heading="Enter anything.." showAlert={showAlert} />}/>
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer/>
+    </Router>
   );
-}
+};
 
 export default App;
