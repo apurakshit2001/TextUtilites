@@ -34,9 +34,9 @@ const NavBar = (props) => {
 NavBar.propTypes = {
     title: propTypes.string.isRequired,
 }
-NavBar.defaultProps = {
-    title: "Set Title Here",
-}
+// NavBar.defaultProps = {
+//     title: "Set Title Here",
+// }
 
 
 export default NavBar

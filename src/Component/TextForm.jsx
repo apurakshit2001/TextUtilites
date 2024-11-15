@@ -6,6 +6,7 @@ const TextForm = (props) => {
     const [findText, setFindText] = useState('');
     const [replaceText, setReplaceText] = useState('');
     const [modalVisible, setModalVisible] = useState(false); // State to control modal visibility
+    const disabled = text.length === 0;
 
     const handleUpdateText = (event) => {
         setText(event.target.value);
@@ -107,15 +108,15 @@ const TextForm = (props) => {
                     placeholder="Enter text for conversion (Uppercase, Lowercase, Trim, etc.)"
                 />
             </div>
-            <button className='btn btn-primary m-1' onClick={handleUpperCase} >Convert To UpperCase</button>
-            <button className='btn btn-primary m-1' onClick={handleLowerCase} >Convert To LowerCase</button>
-            <button className='btn btn-primary m-1' onClick={handleRemove} >Clear</button>
-            <button className='btn btn-primary m-1' onClick={handleTrim}>Remove extra spaces</button>
-            <button type="submit" onClick={CopyText} className="btn btn-primary m-1">Copy</button>
-            <button className='btn btn-primary m-1' onClick={toggleModal}>Find-Replace</button> {/* Open Modal */}
-            <button className='btn btn-primary m-1' onClick={saveToFile}>Save as txt</button>
-            <button className="btn btn-primary m-1 " onClick={handleSpeach}>Text to speech</button>
-            <button className="btn btn-primary m-1 " onClick={handleSpeechToText}>Speech to text</button>
+            <button disabled={disabled} className='btn btn-primary m-1' onClick={handleUpperCase} >Convert To UpperCase</button>
+            <button disabled={disabled} className='btn btn-primary m-1' onClick={handleLowerCase} >Convert To LowerCase</button>
+            <button disabled={disabled} className='btn btn-primary m-1' onClick={handleRemove} >Clear</button>
+            <button disabled={disabled} className='btn btn-primary m-1' onClick={handleTrim}>Remove extra spaces</button>
+            <button disabled={disabled} type="submit" onClick={CopyText} className="btn btn-primary m-1">Copy</button>
+            <button disabled={disabled} className='btn btn-primary m-1' onClick={toggleModal}>Find-Replace</button> {/* Open Modal */}
+            <button disabled={disabled} className='btn btn-primary m-1' onClick={saveToFile}>Save as txt</button>
+            <button disabled={disabled} className="btn btn-primary m-1 " onClick={handleSpeach}>Text to speech</button>
+            <button disabled={disabled} className="btn btn-primary m-1 " onClick={handleSpeechToText}>Speech to text</button>
 
             {/* Modal for Find-Replace */}
             {modalVisible && (
@@ -124,7 +125,7 @@ const TextForm = (props) => {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title">Find and Replace</h5>
-                                <button type="button" className="btn-close" onClick={toggleModal}></button>
+                                <button disabled={disabled} type="button" className="btn-close" onClick={toggleModal}></button>
                             </div>
                             <div className="modal-body">
                                 <div className="mb-3">
@@ -147,8 +148,8 @@ const TextForm = (props) => {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={toggleModal}>Close</button>
-                                <button type="button" className="btn btn-primary" onClick={handleFindReplace}>Replace</button>
+                                <button disabled={disabled} type="button" className="btn btn-secondary" onClick={toggleModal}>Close</button>
+                                <button disabled={disabled} type="button" className="btn btn-primary" onClick={handleFindReplace}>Replace</button>
                             </div>
                         </div>
                     </div>
