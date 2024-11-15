@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Ball from './ball/Ball';
+import './Buttons.css';
 
 const TextForm = (props) => {
     const [text, setText] = useState('');
