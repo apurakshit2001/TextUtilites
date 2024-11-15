@@ -47,8 +47,8 @@ const App = () => {
       <NavBar title="Hola" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
         <Routes>
-          <Route path="/" element={<TextForm heading="Enter anything.." showAlert={showAlert} />}/>
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<TextForm heading="TextUtils - Convert and Format Text Easily (Uppercase, Lowercase, Trim, and More)" showAlert={showAlert} />}/>
+          <Route path="/about" element={<About />} mode={mode}/>
         </Routes>
         <Footer mode={mode}/>
     </Router>
