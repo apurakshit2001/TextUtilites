@@ -34,6 +34,12 @@ const App = () => {
       document.title = 'TextUtils - Light Mode';
       showAlert('Light mode has been enabled', 'success');
     }
+    setInterval(() =>{
+      document.title = 'TextUtils is amazing';
+    },2000);
+    setInterval(() =>{
+      document.title = 'Download TextUtils Now';
+    },1500)
   };
 
   return (
