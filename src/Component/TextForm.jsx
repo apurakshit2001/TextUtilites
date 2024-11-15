@@ -116,7 +116,7 @@ const TextForm = (props) => {
             <button disabled={disabled} className='btn btn-primary m-1' onClick={toggleModal}>Find-Replace</button> {/* Open Modal */}
             <button disabled={disabled} className='btn btn-primary m-1' onClick={saveToFile}>Save as txt</button>
             <button disabled={disabled} className="btn btn-primary m-1 " onClick={handleSpeach}>Text to speech</button>
-            <button disabled={disabled} className="btn btn-primary m-1 " onClick={handleSpeechToText}>Speech to text</button>
+            <button className="btn btn-primary m-1 " onClick={handleSpeechToText}>Speech to text</button>
 
             {/* Modal for Find-Replace */}
             {modalVisible && (
