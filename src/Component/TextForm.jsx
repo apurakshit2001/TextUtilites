@@ -66,35 +66,21 @@ const TextForm = (props) => {
     }
 
     const handleSpeechToText = () => {
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.continuous = true; // Set to true for continuous listening
-    recognition.interimResults = true; // Show partial (interim) results as speech is being recognized
-    recognition.maxAlternatives = 1; // Limits the number of alternative transcripts
-
-    recognition.onstart = () => {
-        props.showAlert('Listening for speech...', 'info');
-    };
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.onstart = () => {
+            props.showAlert('Listening for speech...', 'info');
+        };
+        recognition.onerror = (event) => {
+            props.showAlert('There was an error while recognizing speech', 'danger');
+        };
+        recognition.onresult = (event) => {
+            const speechToText = event.results[0][0].transcript;
+            setText(text + ' ' + speechToText);
+            props.showAlert('Speech to Text Activated', 'success');
+        };
+        recognition.start();
+    }
     
-    recognition.onerror = (event) => {
-        props.showAlert('There was an error while recognizing speech', 'danger');
-    };
-
-    recognition.onresult = (event) => {
-        const speechToText = event.results[0][0].transcript;
-        setText(speechToText);
-        props.showAlert('Speech to Text Activated', 'success');
-    };
-
-    // Start the recognition
-    recognition.start();
-
-    // Optionally stop after a certain time (for example, 30 seconds)
-    setTimeout(() => {
-        recognition.stop(); // Automatically stop after 30 seconds
-        props.showAlert('Speech recognition stopped after 30 seconds', 'info');
-    }, 30000); // 30 seconds timeout
-}
-
 
     const handleSpeach = () => {
         if (!text.trim()) {
