@@ -1,10 +1,11 @@
 .ball {
-    width: 20px;
-    height: 20px;
+    /* width: 20px;
+    height: 20px; */
     border-radius: 50%;
-    border-left: 5px solid #001c46;
-    border-right: 5px solid #001c46;
-    background-color: #0d6efd;
+    border-left: 10px solid #ff0000;
+    border-right: 10px solid #ff0000;
+    border-top: 10px solid #fbff00;
+    border-bottom: 10px solid #fbff00;
     position: absolute;
     animation: moveStartToEndAndThenEndToStart 8s linear infinite;
 }
@@ -62,12 +63,7 @@ h2 {
 }
 @media screen and (min-width: 600px) {
     .ball {
-        width: 20px;
-        height: 20px;
         border-radius: 50%;
-        border-left: 5px solid #001c46;
-        border-right: 5px solid #001c46;
-        background-color: #0d6efd;
         position: absolute;
         animation: moveStartToEndAndThenEndToStart 10s linear infinite;
     }
